@@ -43,13 +43,11 @@ fn main() {
 
     // Ownership
 
-    let string: &str = "Heap Allocation";
-    steal(string);
+    let string = String::from("Heap Allocation");
+    steal(&string); 
 
-    // println!(string) <==== This scope has lost owership
-
-    fn steal(string: &str) -> &str {
-        return string;
+    fn steal(string: &String) {
+        println!("{}", string);
     }
 
 }
